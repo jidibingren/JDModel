@@ -25,69 +25,70 @@
 
 使用示例：
 
-1. 类型嵌套：
+	1. 类型嵌套：
 
-	@interface Depart : JDModel
+		@interface Depart : JDModel
 
-	/** 部门编号 */
-	@property (nonatomic, copy)     NSString                    *departNum;
-	/** 部门名称 */
-	@property (nonatomic, copy)     NSString                    *departName;
+		/** 部门编号 */
+		@property (nonatomic, copy)     NSString                    *departNum;
+		/** 部门名称 */
+		@property (nonatomic, copy)     NSString                    *departName;
 
-	@end
+		@end
 
-	@interface User : JDModel
+		@interface User : JDModel
 
-	@property (nonatomic, copy)     Depart                      *depart;
+		@property (nonatomic, copy)     Depart                      *depart;
 
-	@end
-
-
-2. model数组：
-
-	用JDM_ARRAY_TYPE宏定义与数组元素类名相同的协议
-
-	JDM_ARRAY_TYPE(Depart)
-
-	@interface User : JDModel
-
-	@property (nonatomic, copy)   NSArray<Depart>               *departsArray;
-
-	@end
-
-	注： 
-		1. JDM_ARRAY_TYPE(Depart) 中的'Depart'必须与departsArray中元素的类名相同
-
-		2. NSArray<Depart> 中的'Depart'为Depart，而非'Depart *'
+		@end
 
 
-3. 遵循 NSCoding 的 Foundation 对象：
+	2. model数组：
 
-	@interface User : JDModel
+		用JDM_ARRAY_TYPE宏定义与数组元素类名相同的协议
 
-	@property (nonatomic, copy)     NSDictionary                *testDict;
+		JDM_ARRAY_TYPE(Depart)
 
-	@end
+		@interface User : JDModel
+
+		@property (nonatomic, copy)   NSArray<Depart>               *departsArray;
+
+		@end
+
+		注： 
+		
+			1. JDM_ARRAY_TYPE(Depart) 中的'Depart'必须与departsArray中元素的类名相同
+
+			2. NSArray<Depart> 中的'Depart'为Depart，而非'Depart *'
 
 
-4. 遵循 NSCoding 的自定义对象：
-	
-	NSCoding协议的实现不在赘述
+	3. 遵循 NSCoding 的 Foundation 对象：
 
-	@interface TestOb : NSObject <NSCoding>
+		@interface User : JDModel
 
-	/** 部门编号 */
-	@property (nonatomic, copy)     NSString                    *departNum;
-	/** 部门名称 */
-	@property (nonatomic, copy)     NSString                    *departName;
+		@property (nonatomic, copy)     NSDictionary                *testDict;
 
-	@end
+		@end
 
-	@interface User : JDModel
 
-	@property (nonatomic, copy)     TestOb                      *test;
+	4. 遵循 NSCoding 的自定义对象：
+		
+		NSCoding协议的实现不在赘述
 
-	@property (nonatomic, copy)     NSArray<TestOb*>            *test;
+		@interface TestOb : NSObject <NSCoding>
 
-	@end
+		/** 部门编号 */
+		@property (nonatomic, copy)     NSString                    *departNum;
+		/** 部门名称 */
+		@property (nonatomic, copy)     NSString                    *departName;
+
+		@end
+
+		@interface User : JDModel
+
+		@property (nonatomic, copy)     TestOb                      *test;
+
+		@property (nonatomic, copy)     NSArray<TestOb*>            *test;
+
+		@end
 
