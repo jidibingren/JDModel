@@ -19,12 +19,13 @@
 	注：4、5中嵌套的子元素若为对象，则必须都支持NSCoding协议，如：NSDictionary类型的属性value及value的子对象都必须支持NSCoding协议.
 
 安装：
+
 	pod 'JDModel'
 
 
 使用示例：
 
-1. 类型嵌套
+1. 类型嵌套：
 
 	@interface Depart : JDModel
 
@@ -42,7 +43,7 @@
 	@end
 
 
-2. model数组
+2. model数组：
 
 	用JDM_ARRAY_TYPE宏定义与数组元素类名相同的协议
 
@@ -60,7 +61,7 @@
 		2. NSArray<Depart> 中的'Depart'为Depart，而非'Depart *'
 
 
-3. 遵循 NSCoding 的 Foundation 对象
+3. 遵循 NSCoding 的 Foundation 对象：
 
 	@interface User : JDModel
 
@@ -68,7 +69,8 @@
 
 	@end
 
-4. 遵循 NSCoding 的自定义对象
+
+4. 遵循 NSCoding 的自定义对象：
 	
 	NSCoding协议的实现不在赘述
 
