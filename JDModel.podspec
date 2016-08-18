@@ -39,7 +39,7 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/jidibingren/JDModel.git", :tag => s.version }
 
 
-  s.source_files  = "JDModel", "JDModel/*.{h,m}"
+  s.source_files  = "JDModel", "JDModel/*.{h,m,mm}"
 
   s.public_header_files = "JDModel/*.h"
 
