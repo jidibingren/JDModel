@@ -4,10 +4,15 @@
 
 支持的属性类型：
 	1.所有基础类型，如：int long float double等
+
 	2.类型为JDModel子类型的属性
+	
 	3.元素类型为JDModel子类型的数组的属性
+	
 	4.遵循NSCoding协议的Foundation类型的属性
+	
 	5.遵循NSCoding协议的自定义类型的属性
+	
 	6.所有接口都支持异步
 
 	注：4、5中嵌套的子元素若为对象，则必须都支持NSCoding协议，如：NSDictionary类型的属性value及value的子对象都必须支持NSCoding协议.
@@ -48,7 +53,8 @@
 
 	@end
 
-	注: 1. JDM_ARRAY_TYPE(Depart) 中的'Depart'必须与departsArray中元素的类名相同
+	注： 1. JDM_ARRAY_TYPE(Depart) 中的'Depart'必须与departsArray中元素的类名相同
+	
 		2. NSArray<Depart> 中的'Depart'为Depart，而非'Depart *'
 
 
