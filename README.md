@@ -3,6 +3,7 @@
 
 
 支持的属性类型：
+
 	1.所有基础类型，如：int long float double等
 
 	2.类型为JDModel子类型的属性
@@ -53,8 +54,9 @@
 
 	@end
 
-	注： 1. JDM_ARRAY_TYPE(Depart) 中的'Depart'必须与departsArray中元素的类名相同
-	
+	注： 
+		1. JDM_ARRAY_TYPE(Depart) 中的'Depart'必须与departsArray中元素的类名相同
+
 		2. NSArray<Depart> 中的'Depart'为Depart，而非'Depart *'
 
 
