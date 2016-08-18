@@ -14,7 +14,7 @@
 		523190311D659E3D007F0742 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5231902F1D659E3D007F0742 /* LaunchScreen.storyboard */; };
 		5231903C1D659E3D007F0742 /* JDModelDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5231903B1D659E3D007F0742 /* JDModelDemoTests.m */; };
 		523190471D659E3D007F0742 /* JDModelDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 523190461D659E3D007F0742 /* JDModelDemoUITests.m */; };
-		523190571D659F99007F0742 /* JDModel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 523190561D659F99007F0742 /* JDModel.mm */; };
+		523190571D659F99007F0742 /* JDModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 523190561D659F99007F0742 /* JDModel.m */; };
 		5231905A1D659FFA007F0742 /* JDMHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 523190591D659FFA007F0742 /* JDMHelper.m */; };
 		523190671D65A0C8007F0742 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 5231905D1D65A0C8007F0742 /* FMDatabase.m */; };
 		523190681D65A0C8007F0742 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5231905F1D65A0C8007F0742 /* FMDatabaseAdditions.m */; };
@@ -27,6 +27,7 @@
 		5231907A1D65A2BF007F0742 /* Depart.m in Sources */ = {isa = PBXBuildFile; fileRef = 523190741D65A2BF007F0742 /* Depart.m */; };
 		5231907B1D65A2BF007F0742 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 523190761D65A2BF007F0742 /* User.m */; };
 		5231907D1D65A365007F0742 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 5231907C1D65A365007F0742 /* libsqlite3.tbd */; };
+		523190C31D65B4F8007F0742 /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 523190C21D65B4F8007F0742 /* libstdc++.tbd */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,7 +63,7 @@
 		523190461D659E3D007F0742 /* JDModelDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JDModelDemoUITests.m; sourceTree = "<group>"; };
 		523190481D659E3D007F0742 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		523190551D659F99007F0742 /* JDModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JDModel.h; sourceTree = "<group>"; };
-		523190561D659F99007F0742 /* JDModel.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = JDModel.mm; sourceTree = "<group>"; };
+		523190561D659F99007F0742 /* JDModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JDModel.m; sourceTree = "<group>"; };
 		523190581D659FFA007F0742 /* JDMHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JDMHelper.h; sourceTree = "<group>"; };
 		523190591D659FFA007F0742 /* JDMHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JDMHelper.m; sourceTree = "<group>"; };
 		5231905C1D65A0C8007F0742 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
@@ -86,6 +87,7 @@
 		523190751D65A2BF007F0742 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		523190761D65A2BF007F0742 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		5231907C1D65A365007F0742 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		523190C21D65B4F8007F0742 /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +95,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				523190C31D65B4F8007F0742 /* libstdc++.tbd in Frameworks */,
 				5231907D1D65A365007F0742 /* libsqlite3.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -117,6 +120,7 @@
 		523190151D659E3D007F0742 = {
 			isa = PBXGroup;
 			children = (
+				523190C21D65B4F8007F0742 /* libstdc++.tbd */,
 				5231907C1D65A365007F0742 /* libsqlite3.tbd */,
 				5231905B1D65A0C8007F0742 /* FMDB */,
 				523190541D659EAB007F0742 /* JDModel */,
@@ -183,7 +187,7 @@
 			isa = PBXGroup;
 			children = (
 				523190551D659F99007F0742 /* JDModel.h */,
-				523190561D659F99007F0742 /* JDModel.mm */,
+				523190561D659F99007F0742 /* JDModel.m */,
 				523190581D659FFA007F0742 /* JDMHelper.h */,
 				523190591D659FFA007F0742 /* JDMHelper.m */,
 			);
@@ -372,7 +376,7 @@
 				5231907B1D65A2BF007F0742 /* User.m in Sources */,
 				523190691D65A0C8007F0742 /* FMDatabasePool.m in Sources */,
 				523190681D65A0C8007F0742 /* FMDatabaseAdditions.m in Sources */,
-				523190571D659F99007F0742 /* JDModel.mm in Sources */,
+				523190571D659F99007F0742 /* JDModel.m in Sources */,
 				5231906A1D65A0C8007F0742 /* FMDatabaseQueue.m in Sources */,
 				5231907A1D65A2BF007F0742 /* Depart.m in Sources */,
 			);

@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "JDModel"
-  s.version      = "0.0.1"
+  s.version      = "0.0.2"
   s.summary      = "Base to FMDB, simple and easy to use"
 
   
@@ -39,7 +39,7 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/jidibingren/JDModel.git", :tag => s.version }
 
 
-  s.source_files  = "JDModel", "JDModel/*.{h,m,mm}"
+  s.source_files  = "JDModel", "JDModel/*.{h,m}"
 
   s.public_header_files = "JDModel/*.h"
 
@@ -53,8 +53,8 @@ Pod::Spec.new do |s|
   # s.framework  = "SomeFramework"
   # s.frameworks = "SomeFramework", "AnotherFramework"
 
-  s.library   = "sqlite3"
-  # s.libraries = "iconv", "xml2"
+  # s.library   = "sqlite3"
+s.libraries = "sqlite3", "stdc++"
 
 
 s.requires_arc = true
