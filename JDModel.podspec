@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "JDModel"
-  s.version      = "0.0.2"
+  s.version      = "0.0.3"
   s.summary      = "Base to FMDB, simple and easy to use"
 
   

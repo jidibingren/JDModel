@@ -49,7 +49,7 @@
     NSMutableDictionary *subModelClassDict = [NSMutableDictionary new];
     NSMutableData       *propertyTypes = [NSMutableData new];
     JDMPropertyType pType = JDMPropertyInteger;
-    [propertyTypes appendBytes:(const void *)&pType length:1];
+//    [propertyTypes appendBytes:(const void *)&pType length:1];
     
     NSArray *theTransients = [[self class] transients];
     
@@ -59,7 +59,7 @@
         objc_property_t property = properties[i];
         //获取属性名
         NSString *propertyName = [NSString stringWithCString:property_getName(property) encoding:NSUTF8StringEncoding];
-        if ([theTransients containsObject:propertyName] || [propertyName hasPrefix:@"jdm_"]) {
+        if ([theTransients containsObject:propertyName] || [propertyName hasPrefix:@"jdm_"] || [propertyName isEqualToString:JDM_primaryId]) {
             continue;
         }
         [proNames addObject:propertyName];
@@ -172,19 +172,61 @@
     
     if (initializeClasses[className] == nil) {
         
+        NSDictionary *superClassDict = nil;
+        
+        if ([self.class superclass] != [NSObject class]) {
+            superClassDict = [[self.class superclass] getAllProperties];
+        }
+        
         NSDictionary *dict = [self.class getPropertys];
         
         NSMutableArray *proNames = [NSMutableArray array];
         NSMutableArray *proTypes = [NSMutableArray array];
         NSMutableArray *proTypeNames = [NSMutableArray array];
-        NSDictionary *subModelClassDict = [dict objectForKey:@"subModelClasses"];
-        NSData *propertyTypes = [dict objectForKey:@"propertyTypes"];
-        [proNames addObject:JDM_primaryId];
-        [proTypes addObject:[NSString stringWithFormat:@"%@ %@",JDM_SQLINTEGER,JDM_PrimaryKey]];
+        NSMutableDictionary *subModelClassDict = [NSMutableDictionary new];
+        NSMutableData *propertyTypes = [NSMutableData new];
+        
+        if (self.class == [JDModel class]) {
+            
+            [proNames addObject:JDM_primaryId];
+            [proTypes addObject:[NSString stringWithFormat:@"%@ %@",JDM_SQLINTEGER,JDM_PrimaryKey]];
+            [proTypeNames addObject:JDM_SQLINTEGER];
+            
+            JDMPropertyType pType = JDMPropertyInteger;
+            [propertyTypes appendBytes:(const void *)&pType length:1];
+        }
+        
+        if (superClassDict[@"name"]) {
+            [proNames addObjectsFromArray:superClassDict[@"name"]];
+        }
+        
+        if (superClassDict[@"type"]) {
+            [proTypes addObjectsFromArray:superClassDict[@"type"]];
+        }
+        
+        if (superClassDict[@"typeName"]) {
+            [proTypeNames addObjectsFromArray:superClassDict[@"typeName"]];
+        }
+        
+        if (superClassDict[@"subModelClasses"]) {
+            [subModelClassDict addEntriesFromDictionary:superClassDict[@"subModelClasses"]];
+        }
+        
+        NSData *superPropertyData = superClassDict[@"propertyTypes"];
+        if (superPropertyData.length > 0) {
+            [propertyTypes appendBytes:superPropertyData.bytes length:superPropertyData.length];
+        }
+        
         [proNames addObjectsFromArray:[dict objectForKey:@"name"]];
         [proTypes addObjectsFromArray:[dict objectForKey:@"type"]];
-        [proTypeNames addObject:JDM_SQLINTEGER];
         [proTypeNames addObjectsFromArray:[dict objectForKey:@"typeName"]];
+        [subModelClassDict addEntriesFromDictionary:[dict objectForKey:@"subModelClasses"]];
+        
+        NSData *propertyData = dict[@"propertyTypes"];
+        if (propertyData.length > 0) {
+            [propertyTypes appendBytes:propertyData.bytes length:propertyData.length];
+        }
+//        [propertyTypes appendData:[dict objectForKey:@"propertyTypes"]];
         
         NSDictionary *classDict = [NSDictionary dictionaryWithObjectsAndKeys:proNames,@"name",proTypes,@"type",proTypeNames,@"typeName",subModelClassDict,@"subModelClasses",propertyTypes,@"propertyTypes",nil];
         initializeClasses[className] = classDict;
